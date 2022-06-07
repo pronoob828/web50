@@ -14,13 +14,13 @@
         <textarea name="description" cols="30" rows="10" placeholder="Description" class="form-control my-2"
             required></textarea>
         <input type="number" step="1" name="starting_bid" placeholder="Starting bid" class="form-control my-2" required>
-        <input type="url" name="image_url" class="form-control my-2" placeholder="Image URL">
+        <input type="url" name="image_url" class="form-control my-2" placeholder="Image URL (Optional)">
         <div class="input-group my-3 container-fluid">
             <div class="input-group-prepend">
                 <label class="input-group-text" for="selector">Category</label>
               </div>
             <select name="category" class="custom-select" id="selector" required>
-                <option selected>category</option>
+                <option selected>category (optional)</option>
                 {% for option in categories %}
                 <option value="{{option}}">{{option}}</option>
                 {% endfor %}
