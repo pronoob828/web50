@@ -9,10 +9,9 @@ register = template.Library()
 def winner_of(listing_id):
     
     listing = auction_listing.objects.get(pk=listing_id)
-    try:
-        max_bid_amount = bid.objects.filter(listing=listing).aggregate(Max("amount"))[
+    max_bid_amount = bid.objects.filter(listing=listing).aggregate(Max("amount"))[
             "amount__max"
         ]
-    except:
+    if max_bid_amount == None:
         max_bid_amount = listing.starting_bid    
     return max_bid_amount

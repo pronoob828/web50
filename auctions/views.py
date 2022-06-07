@@ -117,6 +117,8 @@ def display_listing(request, listing_id):
             return HttpResponse(
                 "<br><br><br><center><h1>Something went really wrong 118</h1></center>"
             )
+    else:
+        in_watchlist=False
 
     return render(
         request,
@@ -128,7 +130,7 @@ def display_listing(request, listing_id):
             "current_bid": max_bid_amount,
             "bids": bids,
             "winner": winner,
-            "in_watchlist": in_watchlist,
+            "in_watchlist": in_watchlist
         },
     )
 
@@ -307,3 +309,11 @@ def show_category(request,category):
         "category":category,
         "current_time":get_saudi_time()
     })
+
+def my_listings(request):
+    listings = auction_listing.objects.filter(owner = request.user).order_by("-listing_time")
+    return render(request,"auctions/my_listings.html",{
+        "listings":listings,
+        "current_time":get_saudi_time()
+    })
+

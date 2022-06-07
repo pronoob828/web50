@@ -16,7 +16,7 @@ Categories = (
     ('Toys','Toys'),
     ('Sports','Sports'),
     ('Books','Books'),
-    ('Fragrance','Fragrance'),
+    ('Art','Art'),
     ('Furniture','Furniture'),
     ('Other', 'Other')
 ) 

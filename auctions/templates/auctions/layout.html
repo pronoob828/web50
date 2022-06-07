@@ -30,7 +30,7 @@
         Not signed in.
         {% endif %}
     </div>
-    <div class="container-fluid d-flex">
+    <div class="container-fluid d-flex justify-content-end">
     <ul class="nav">
         <li class="nav-item">
             <a class="nav-link" style="color:black" href="{% url 'index' %}">Active Listings</a>
@@ -42,10 +42,13 @@
         <li class="nav-item">
             <a class="nav-link" style="color:black" href="{% url 'show_watchlist' %}">Watchlist</a>
         </li>
-        <li class="nav-item ">
+        <li class="nav-item">
+            <a class="nav-link" style="color:black" href="{% url 'my_listings' %}">My Listings</a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" style="color:black" href="{% url 'logout' %}">Log Out</a>
         </li>
-        <li class="nav-item d-flex" style="margin-left:50vw;">
+        <li class="nav-item ml-5" >
             <a href="{% url 'create_listing' %}">
                 <button class="btn btn-success">
                     Create Listing
