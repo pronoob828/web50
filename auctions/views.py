@@ -197,6 +197,21 @@ def palce_bid(request):
 
     return HttpResponseRedirect(reverse("display", args=[listing_id]))
 
+def winner_of(listing_id):
+    listing = auction_listing.objects.get(pk=listing_id)
+    try:
+        max_bid_amount = bid.objects.filter(listing=listing).aggregate(Max("amount"))[
+            "amount__max"
+        ]
+        winner_bid = bid.objects.get(amount=max_bid_amount)
+        winner = User.objects.get(bids=winner_bid)
+    except:
+        max_bid_amount = listing.starting_bid
+        winner_bid = listing.starting_bid
+        winner = "None"
+
+    return winner
+
 
 @login_required
 def close_listing(request):
@@ -212,6 +227,9 @@ def close_listing(request):
         if closer == listing.owner:
             listing.open = False
             listing.save()
+            if watchlist.objects.filter(listing = listing).count() == 0:
+                new_watchlist = watchlist(user = winner_of(listing_id),listing = listing)
+                new_watchlist.save()
         else:
             return HttpResponse(
                 "<br><br><br><center><h1>What do you think you're doing</h1></center>"
