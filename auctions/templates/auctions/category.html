@@ -1,0 +1,23 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<h2>Listing in category : {{category}}</h2>
+<table class="table">
+    {% for listing in listings%}
+    <tr>
+        
+        <td class="col-4"><img src="{{listing.image}}" alt="No image" class="img-thumbnail" width="400px"> </td>
+        <td class="col-8"><a href="{% url 'display' listing.id%}">
+            <h2 class=>{{listing.title}}</h2>
+            <p class="overflow-hidden text-secondary" >{{listing.description}}</p></a>
+            <h4>Starting bid - ${{listing.starting_bid}}</h4>
+            <h5>Listed by {{listing.owner.username}}</h5>
+            <small class="text-muted">{{listing.listing_time | timesince:current_time}} ago</small><br>
+            <small class="text-muted"><a href="{%url 'show_category' listing.category %}" target="_blank">{{listing.category}}</a></small>
+        </td>
+
+    </tr>
+    {% endfor %}
+
+</table>
+{% endblock %}

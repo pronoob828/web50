@@ -1,0 +1,33 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<h2>Watchlist</h2>
+<table class="table">
+    {% for watchlist in watchlists%}
+    <tr>
+
+        <td class="col-4"><img src="{{watchlist.listing.image}}" alt="No image" class="img-thumbnail" width="400px"> </td>
+        <td class="col-7"><a href="{% url 'display' watchlist.listing.id%}">
+                <h2 class=>{{watchlist.listing.title}}</h2>
+                <p class="overflow-hidden text-secondary">{{watchlist.listing.description}}</p>
+            </a>
+            <h4>Starting bid - ${{watchlist.listing.starting_bid}}</h4>
+            <h5>Listed by {{watchlist.listing.owner.username}}</h5>
+            <small class="text-muted">{{watchlist.listing.watchlist.listing_time | timesince:current_time}} ago</small><br>
+            <a href="{% url 'show_category' watchlist.listing.category %}" target="_blank"><small class="text-muted">{{watchlist.listing.category}}</small></a>
+        </td>
+        <td class="col-1">
+            <form action="{% url 'remove_from_watchlist'%}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="listing_id" value="{{watchlist.listing.id}}">
+                <button class="btn btn-warning" type="submit">
+                    Remove
+                </button>
+            </form>
+        </td>
+
+    </tr>
+    {% endfor %}
+
+</table>
+{% endblock %}
