@@ -1,5 +1,9 @@
 {% extends "auctions/layout.html" %}
 
+{% block title %}
+: Categories
+{% endblock %}
+
 {% block body %}
 <h2 class="text-center">Categories</h2>
 <br>
@@ -12,7 +16,7 @@
         <tr>
             {% endif %}
             <td class="text-center py-3">
-                <a href="{%url 'show_category' category %}" target="_blank">{{category}}</a>
+                <a href="{%url 'show_category' category %}">{{category}}</a>
             </td>
             {% if forloop.counter|divisibleby:'3' or forloop.last %}
         </tr>

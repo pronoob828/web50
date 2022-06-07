@@ -1,4 +1,5 @@
 {% extends "auctions/layout.html" %}
+{% load custom_tags %}
 
 {% block body %}
 <h2>Watchlist</h2>
@@ -11,10 +12,10 @@
                 <h2 class=>{{watchlist.listing.title}}</h2>
                 <p class="overflow-hidden text-secondary">{{watchlist.listing.description}}</p>
             </a>
-            <h4>Starting bid - ${{watchlist.listing.starting_bid}}</h4>
+            <h4>Current Price - ${{watchlist.listing.id | winner_of}}</h4>
             <h5>Listed by {{watchlist.listing.owner.username}}</h5>
             <small class="text-muted">{{watchlist.listing.watchlist.listing_time | timesince:current_time}} ago</small><br>
-            <a href="{% url 'show_category' watchlist.listing.category %}" target="_blank"><small class="text-muted">{{watchlist.listing.category}}</small></a>
+            <a href="{% url 'show_category' watchlist.listing.category %}"><small class="text-muted">{{watchlist.listing.category}}</small></a>
         </td>
         <td class="col-1">
             <form action="{% url 'remove_from_watchlist'%}" method="post">

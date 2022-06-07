@@ -1,4 +1,5 @@
 {% extends "auctions/layout.html" %}
+{%load custom_tags%}
 
 {% block body %}
 <h2>Active Listings</h2>
@@ -7,13 +8,13 @@
     <tr>
         
         <td class="col-3"><img src="{{listing.image}}" alt="No image" class="img-thumbnail"></td>
-        <td class="col-9"><a href="{% url 'display' listing.id%} " target="_blank">
+        <td class="col-9"><a href="{% url 'display' listing.id%} ">
             <h2 class=>{{listing.title}}</h2>
             <p class="overflow-hidden text-secondary" >{{listing.description}}</p></a>
-            <h4>Starting bid - ${{listing.starting_bid}}</h4>
+            <h4>Current Price - ${{listing.id| winner_of}}</h4>
             <h5>Listed by {{listing.owner.username}}</h5>
             <small class="text-muted">{{listing.listing_time | timesince:current_time}} ago</small><br>
-            <small class="text-muted"><a href="{% url 'show_category' listing.category %}" target="_blank">{{listing.category}}</a></small>
+            <small class="text-muted"><a href="{% url 'show_category' listing.category %}">{{listing.category}}</a></small>
         </td>
 
     </tr>

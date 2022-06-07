@@ -1,5 +1,9 @@
 {% extends "auctions/layout.html" %}
 
+{% block title %}
+: {{category}}
+{% endblock %}
+
 {% block body %}
 <h2>Listing in category : {{category}}</h2>
 <table class="table">
@@ -13,7 +17,7 @@
             <h4>Starting bid - ${{listing.starting_bid}}</h4>
             <h5>Listed by {{listing.owner.username}}</h5>
             <small class="text-muted">{{listing.listing_time | timesince:current_time}} ago</small><br>
-            <small class="text-muted"><a href="{%url 'show_category' listing.category %}" target="_blank">{{listing.category}}</a></small>
+            <small class="text-muted"><a href="{%url 'show_category' listing.category %}">{{listing.category}}</a></small>
         </td>
 
     </tr>

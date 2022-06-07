@@ -55,7 +55,7 @@ class comment(models.Model):
 
     def __str__(self):
         formatted_time = self.comment_time.strftime("%d/%m/%Y, %H:%M:%S")
-        return f"{self.commenter.username} -- commented -- {self.comment_text} -- on -- {self.listing.title} -- {formatted_time}"
+        return f"{self.commenter.username} -- commented -- {self.comment_text[:70]}... -- on -- {self.listing.title} -- {formatted_time}"
 
 class watchlist(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,related_name="watchlist_user")
