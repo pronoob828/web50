@@ -17,5 +17,6 @@ urlpatterns = [
     path("create_listing",views.create_listing,name="create_listing"),
     path("categories",views.all_categories,name="all_categories"),
     path("categories/<str:category>",views.show_category,name="show_category"),
-    path("my_listings",views.my_listings,name="my_listings")
+    path("my_listings",views.my_listings,name="my_listings"),
+    path("quick_remove_from_watchlist",views.quick_remove_from_watchlist,name="quick_remove_from_watchlist")
 ]

@@ -317,3 +317,16 @@ def my_listings(request):
         "current_time":get_saudi_time()
     })
 
+def quick_remove_from_watchlist(request):
+
+    if request.method == "POST":
+        listing_id = int(request.POST["listing_id"])
+        listing = auction_listing.objects.get(pk=listing_id)
+        try:
+            watchlist.objects.filter(listing=listing).delete()
+        except:
+            return HttpResponse(
+                "<br><br><br><center><h1>Something went wrong 226</h1></center>"
+            )
+
+        return HttpResponseRedirect(reverse("show_watchlist"))

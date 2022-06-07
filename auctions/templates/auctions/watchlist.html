@@ -18,7 +18,7 @@
             <a href="{% url 'show_category' watchlist.listing.category %}"><small class="text-muted">{{watchlist.listing.category}}</small></a>
         </td>
         <td class="col-1">
-            <form action="{% url 'remove_from_watchlist'%}" method="post">
+            <form action="{% url 'quick_remove_from_watchlist'%}" method="post">
                 {% csrf_token %}
                 <input type="hidden" name="listing_id" value="{{watchlist.listing.id}}">
                 <button class="btn btn-warning" type="submit">
