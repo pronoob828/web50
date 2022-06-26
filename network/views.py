@@ -140,7 +140,7 @@ def create_post(request):
         return JsonResponse({"error": "POST request required"}, status=400)
 
     data = json.loads(request.body)
-    data = strip_tags(data)
+    data["post_text"] = strip_tags(data["post_text"])
     if data["post_text"]:
         new_post = Post(poster=request.user, post_body=data["post_text"])
         new_post.save()
