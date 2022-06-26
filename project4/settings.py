@@ -27,7 +27,7 @@ SECRET_KEY = '13kl@xtukpwe&xj2xoysxe9_6=tf@f8ewxer5n&ifnd46+6$%8'
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['192.168.1.6','127.0.0.1','https://networkproject4.herokuapp.com/']
+ALLOWED_HOSTS = ['192.168.1.6','127.0.0.1','networkproject4.herokuapp.com']
 
 
 # Application definition
