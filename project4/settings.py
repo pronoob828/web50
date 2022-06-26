@@ -23,7 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '13kl@xtukpwe&xj2xoysxe9_6=tf@f8ewxer5n&ifnd46+6$%8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = (os.environ.get('DEBUG_VALUE') == "True")
+
 
 ALLOWED_HOSTS = ['192.168.1.6','127.0.0.1']
 
@@ -90,8 +91,8 @@ if Database_no == 2:
         'default': {  
             'ENGINE': 'django.db.backends.mysql',  
             'NAME': 'project4',  
-            'USER': 'root',  
-            'PASSWORD': 'Google7333',  
+            'USER': os.environ.get("MYSQL_USER_PROJECT4"),  
+            'PASSWORD': os.environ.get("MYSQL_PASS"),  
             'HOST': '127.0.0.1',  
             'PORT': '3306',  
             'OPTIONS': {  
@@ -139,7 +140,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
