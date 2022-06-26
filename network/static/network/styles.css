@@ -1,0 +1,37 @@
+.comment_btn:hover {
+    color: blue;
+}
+
+.post_likes:hover {
+    color: blue;
+    cursor: pointer;
+}
+
+.like_btns {
+    z-index: 2;
+    cursor: pointer;
+}
+
+#show_all_posts {
+    z-index: 1;
+}
+
+.username {
+    color: black
+}
+
+.username:hover {
+    color: black;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.clickable{
+    color:black
+}
+
+.clickable:hover{
+    color:black;
+    text-decoration: underline;
+    cursor: pointer;
+}

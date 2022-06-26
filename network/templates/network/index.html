@@ -1,0 +1,43 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block script %}
+{% csrf_token %}
+<script src="{% static 'network/index.js'%}"></script>
+{% endblock %}
+
+{% block body %}
+<div id="show_all_posts" class="container-fluid">
+
+    <div class="container-fluid p-4 mb-5">
+        <h2>Create New Post</h2>
+        <textarea id="create_post_text" required name="Post_body" cols="30" rows="7" placeholder="Your Post..."
+            class="form-control my-3"></textarea>
+        <button id="create_post_btn" class="float-right btn btn-primary">Post</button>
+    </div>
+
+    <div id="all_posts" class="mb-3 container-fluid">
+        <h2>All Posts</h2>
+    </div>
+
+    <div id="paginator" class="text-center">
+        <div class="d-inline-block">
+            <ul class="pagination">
+                <li id="prev_page" class="page-item"><span class="clickable page-link" href="#">Prev Page</span></li>
+                <li id="next_page" class="page-item"><span class="clickable page-link" href="#">Next Page</span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div id="show_user_profile" class="d-none container-fluid p-5">
+
+</div>
+
+
+<div id="show_post" class="d-none container-fluid p-5">
+
+</div>
+
+{% endblock %}
