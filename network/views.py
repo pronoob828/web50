@@ -9,6 +9,7 @@ from .models import User, Post, Comments, Follows
 import json
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
+from django.utils.html import strip_tags
 
 
 def index(request):
@@ -139,6 +140,7 @@ def create_post(request):
         return JsonResponse({"error": "POST request required"}, status=400)
 
     data = json.loads(request.body)
+    data = strip_tags(data)
     if data["post_text"]:
         new_post = Post(poster=request.user, post_body=data["post_text"])
         new_post.save()
