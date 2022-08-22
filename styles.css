@@ -1,0 +1,113 @@
+@font-face {
+    font-family: 'Product-Sans';
+    src: url('Product\ Sans\ Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body {
+    font-family: sans-serif;
+    background-color: #202124;
+    color: white;
+}
+
+a {
+    margin: 1em;
+    text-decoration: none;
+    color: white;
+}
+
+#Logo {
+    font-size: 85px;
+    color: white;
+    margin: 0;
+    font-family: "Product-Sans", Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.search-bar {
+    background-color: #202124;
+    margin: 0;
+}
+
+#query {
+    border: 1px solid 303134;
+    border-radius: 10rem;
+    background-color: #202124;
+    color: white;
+    width: 45%;
+    margin-top: 0;
+}
+
+#query::placeholder{
+    color: #202124;
+}
+
+#query:hover {
+    background-color: #303134;
+    border: none;
+}
+
+#query:focus{
+    border: none;
+    background-color: #303134;
+    box-shadow: none;
+}
+
+.search-button {
+    background-color: #303134;
+    color: white;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+#adv-logo{
+    font-family: "Product-Sans";
+    margin-left: 1rem;
+    color: #ddd;
+}
+
+#adv-search-logo{
+    color: #ff8888;
+    margin-left: 3rem;
+}
+
+#adv-search-box{
+    margin-left: 3rem;
+}
+
+.as-search-box{
+    border: 1px solid #666;
+    background-color: #202124;
+    width: 100%;
+    color: #999;
+    font-size: 13px;
+    padding: 3px;
+}
+
+
+
+.as-form{
+    color: #999;
+}
+
+.search-tips{
+    font-size: 11px;
+}
+
+.row{
+    margin-bottom: 15px;
+}
+
+.as-search-info{
+    font-size: 13px;
+}
+
+.as-go{
+    font-size: 12px;
+    color: white;
+    background-color: #8ab4f8;
+}
+.nav-item{
+    font-size: 14px;
+}
