@@ -1,0 +1,9 @@
+textarea {
+    min-height: 400px;
+    margin-bottom: 5px;
+}
+
+#compose-form{
+    padding: 10px;
+    border: 1px solid lightgrey;
+}
